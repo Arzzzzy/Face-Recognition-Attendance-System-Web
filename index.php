@@ -105,7 +105,7 @@ session_start();
       if ($num > 0) {
         $_SESSION['userId'] = $rows['Id'];
         echo "<script type = \"text/javascript\">
-            window.location = (\"lecture/takeAttendance.php\")
+            window.location = (\"Lecture/takeAttendance.php\")
             </script>";
       } else {
         echo "<script>showMessage('Invalid Username/Password!');</script>";
