@@ -86,7 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Lecture Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
     <script defer src="face-api.min.js"></script>
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" rel="stylesheet">
     <style>
         .table {
@@ -109,19 +108,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .highlight {
-            animation: highlight 3s ease-in-out;
+            animation: highlight 2.5s ease-in-out;
         }
     </style>
 </head>
 
-
 <body>
-
     <?php include 'includes/topbar.php'; ?>
     <section class="main">
         <?php include 'includes/sidebar.php'; ?>
         <div class="main--content">
-            <div id="messageDiv" class="messageDiv" style="display:none;"> </div>
+            <div id="messageDiv" class="messageDiv" style="display:none;"></div>
 
             <form class="lecture-options" id="selectForm">
                 <select required name="course" id="courseSelect" onChange="updateTable()">
@@ -133,7 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     ?>
                 </select>
-
                 <select required name="unit" id="unitSelect" onChange="updateTable()">
                     <option value="" selected>Select Unit</option>
                     <?php
@@ -143,7 +139,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     ?>
                 </select>
-
                 <select required name="venue" id="venueSelect" onChange="updateTable()">
                     <option value="" selected>Select Venue</option>
                     <?php
@@ -153,50 +148,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                     ?>
                 </select>
-
             </form>
+
             <div class="attendance-button">
                 <button id="startButton" class="add">Launch Facial Recognition</button>
                 <button id="endButton" class="add" style="display:none">End Attendance Process</button>
                 <button id="endAttendance" class="add">End Attendance Taking</button>
             </div>
-
             <br>
-
             <div class="video-container" style="display:none;">
                 <video id="video" width="600" height="450" autoplay muted></video>
                 <canvas id="overlay"></canvas>
             </div>
-
             <br>
-
             <div class="table-container">
-
                 <div id="studentTableContainer"></div>
             </div>
-
-
-
         </div>
     </section>
-    <script>
-        document.getElementById("startButton").onclick = function() {
-            var course = document.getElementById("courseSelect").value;
-            var unit = document.getElementById("unitSelect").value;
-            var venue = document.getElementById("venueSelect").value;
-            if (course == "" || unit == "" || venue == "") {
-                window.alert("Please choose a Course, Unit, and Venue");
-            }
-        }
-    </script>
-
     <script src="script.js"></script>
     <script src="../admin/javascript/main.js"></script>
-
-
-
-
-
 </body>
 
 </html>
