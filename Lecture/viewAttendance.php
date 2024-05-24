@@ -235,12 +235,31 @@ if (!empty($unitCode)) {
         var currentDate = new Date();
         var formattedDate = currentDate.toLocaleDateString(); // Format the date as needed
 
-        var headerContent = '<p style="font-weight:700;"> Attendance for : ' + courseCode + ' Unit name : ' + unitCode + ' On: ' + formattedDate + '</p>';
-        var tbody = document.createElement('tbody');
-        var additionalRow = tbody.insertRow(0);
-        var additionalCell = additionalRow.insertCell(0);
-        additionalCell.innerHTML = headerContent;
-        table.insertBefore(tbody, table.firstChild);
+        // Create a thead to hold the header rows
+        var thead = document.createElement('thead');
+
+        // Create a row for courseCode
+        var courseCodeRow = thead.insertRow(0);
+        var courseCodeCell = courseCodeRow.insertCell(0);
+        courseCodeCell.colSpan = table.rows[0].cells.length; // Set colspan to span all columns
+        courseCodeCell.innerHTML = '<p style="font-weight:700;">Attendance for: ' + courseCode + '</p>';
+
+        // Create a row for unitCode
+        var unitCodeRow = thead.insertRow(1);
+        var unitCodeCell = unitCodeRow.insertCell(0);
+        unitCodeCell.colSpan = table.rows[0].cells.length; // Set colspan to span all columns
+        unitCodeCell.innerHTML = '<p style="font-weight:700;">Unit name: ' + unitCode + '</p>';
+
+        // Create a row for formattedDate
+        var dateRow = thead.insertRow(2);
+        var dateCell = dateRow.insertCell(0);
+        dateCell.colSpan = table.rows[0].cells.length; // Set colspan to span all columns
+        dateCell.innerHTML = '<p style="font-weight:700;">On: ' + formattedDate + '</p>';
+
+        // Insert the header rows before the table's first row
+        table.insertBefore(thead, table.firstChild);
+
+        // Proceed with exporting the table
         var wb = XLSX.utils.table_to_book(table, {
             sheet: "Attendance"
         });
@@ -259,10 +278,13 @@ if (!empty($unitCode)) {
         saveAs(blob, filename);
     }
 
+    // Helper function to convert s2ab
     function s2ab(s) {
         var buf = new ArrayBuffer(s.length);
         var view = new Uint8Array(buf);
-        for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+        for (var i = 0; i < s.length; i++) {
+            view[i] = s.charCodeAt(i) & 0xFF;
+        }
         return buf;
     }
 </script>

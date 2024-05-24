@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     ?>
                 </select>
             </form>
-
+            <br>
             <div class="attendance-button">
                 <button id="startButton" class="add">Launch Facial Recognition</button>
                 <button id="endButton" class="add" style="display:none">End Attendance Process</button>
