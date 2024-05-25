@@ -114,7 +114,7 @@ select:focus,input:focus{
 .recover a{
     text-decoration:none;
 }
-.btn-login{
+.btn-login, .btn-test-api{
     font-size:1.1rem;
     margin-top:1rem;
     padding:8px 0;
@@ -126,8 +126,12 @@ select:focus,input:focus{
     color:#fff;
     cursor:pointer;
 }
-.btn-login:hover{
+.btn-login:hover, .btn-test-api:hover {
     background-color: #0056b3;
+}
+.btn-test-api {
+    background:#dfe9f5;
+    color: #757575;
 }
 .or{
     font-size:1.1rem;

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script defer src="face-api.min.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    .video-container {
+      position: relative;
+    }
+
+    video {
+      width: 720px;
+      height: 560px;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .footer {
+      margin-top: 34px;
+      background-color: #fff0e5;
+      border-radius: 15px;
+      text-align: center;
+      padding: 0.5rem;
+      width: 100%;
+    }
+
+    .footer p {
+      margin: 0.5rem 0;
+    }
+
+    #copyright {
+      margin-top: 20px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <center>
+    <h1>Face Recognition API Testing & Demonstration</h1>
+    <h2>| with face expressions and face landmarks |</h2>
+  </center>
+  <div class="video-container">
+    <video id="video" autoplay muted></video>
+  </div>
+  <h3>Attendify - "Say goodbye to manual roll calls with advanced facial recognition technology for effortless attendance tracking."</h3>
+  <div class="footer">
+    <p>Fulfilling the requirements for the IT 142 System Integration <br> & Architecture subject.</p>
+    <p id="copyright">© 2024 Bryan Mangapit. All Rights Reserved.</p>
+  </div>
+</body>
+</html>

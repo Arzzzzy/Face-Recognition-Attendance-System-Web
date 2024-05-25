@@ -32,6 +32,7 @@ session_start();
           </p>
           <input type="submit" class="btn-login" value="Login" name="login" />
         </form>
+        <a href="Test_API/index.html"><button class="btn-test-api">Test API</button></a>
         <p class="or">
           -------- or --------
         </p>
