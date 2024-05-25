@@ -152,6 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <br>
             <div class="attendance-button">
                 <button id="startButton" class="add">Launch Facial Recognition</button>
+                <button id="addButton" class="add">Upload Class Photo</button>
+                <input type="file" id="photoUpload" accept="image/*" style="display:none;" />
                 <button id="endButton" class="add" style="display:none">End Attendance Process</button>
                 <button id="endAttendance" class="add">End Attendance Taking</button>
             </div>
